@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 13,
+  "parameters": [],
+  "recipe": [
+    {
+      "id": "vtXsTChxJgBwKJ55GhmWFn",
+      "transform": "IMPORT",
+      "params": {
+        "type": "catalog",
+        "structuring": {
+          "source": {
+            "type": "objectStore",
+            "uri": "s3://bbo-playground-unstructured-bucket/GHCN/2021.csv",
+            "schema": {
+              "columns": [
+                {
+                  "header": "ID",
+                  "name": "ID",
+                  "datatype": "identifier"
+                },
+                {
+                  "header": "DATE",
+                  "name": "DATE",
+                  "datatype": "integer",
+                  "options": {}
+                },
+                {
+                  "header": "ELEMENT",
+                  "name": "ELEMENT",
+                  "datatype": "category"
+                },
+                {
+                  "header": "DATA_VALUE",
+                  "name": "DATA VALUE",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "header": "M_FLAG",
+                  "name": "M FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "header": "Q_FLAG",
+                  "name": "Q FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "header": "S_FLAG",
+                  "name": "S FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "header": "OBS_TIME",
+                  "name": "OBS TIME",
+                  "datatype": "string"
+                }
+              ],
+              "markers": {}
+            },
+            "params": {
+              "format": "csv"
+            },
+            "previewUri": "s3://bbo-playground-unstructured-bucket/GHCN/2021.csv"
+          },
+          "target": {
+            "tablePrefix": "testbbo",
+            "tableUuid": "qjjybmmiuhacb5ixttqzog",
+            "database": "bbo-playground-structured-catalog",
+            "location": "s3://bbo-playground-structured-bucket/",
+            "table": "testbbo_qjjybmmiuhacb5ixttqzog",
+            "schema": {
+              "columns": [
+                {
+                  "id": "id",
+                  "header": "ID",
+                  "name": "ID",
+                  "datatype": "identifier"
+                },
+                {
+                  "id": "date",
+                  "header": "DATE",
+                  "name": "DATE",
+                  "datatype": "integer",
+                  "options": {}
+                },
+                {
+                  "id": "element",
+                  "header": "ELEMENT",
+                  "name": "ELEMENT",
+                  "datatype": "category"
+                },
+                {
+                  "id": "data_value",
+                  "header": "DATA_VALUE",
+                  "name": "DATA VALUE",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "id": "m_flag",
+                  "header": "M_FLAG",
+                  "name": "M FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "id": "q_flag",
+                  "header": "Q_FLAG",
+                  "name": "Q FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "id": "s_flag",
+                  "header": "S_FLAG",
+                  "name": "S FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "id": "obs_time",
+                  "header": "OBS_TIME",
+                  "name": "OBS TIME",
+                  "datatype": "string"
+                }
+              ],
+              "markers": {}
+            },
+            "partitioning": {
+              "method": "files"
+            },
+            "properties": {
+              "name": "testbbo"
+            },
+            "generatePrimaryKey": false
+          }
+        },
+        "reference": {
+          "database": "bbo-playground-structured-catalog",
+          "table": "testbbo_qjjybmmiuhacb5ixttqzog"
+        }
+      }
+    }
+  ],
+  "boundaries": {
+    "server": null
+  }
+}
