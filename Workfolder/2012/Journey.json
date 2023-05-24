@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 13,
+  "parameters": [],
+  "recipe": [
+    {
+      "id": "nLWwRfYEiGDX2Ipbu9WKOR",
+      "transform": "IMPORT",
+      "params": {
+        "type": "catalog",
+        "structuring": {
+          "source": {
+            "type": "objectStore",
+            "uri": "s3://bbo-playground-unstructured-bucket/GHCN/2012.csv",
+            "schema": {
+              "columns": [
+                {
+                  "header": "ID",
+                  "name": "ID",
+                  "datatype": "identifier"
+                },
+                {
+                  "header": "DATE",
+                  "name": "DATE",
+                  "datatype": "integer",
+                  "options": {}
+                },
+                {
+                  "header": "ELEMENT",
+                  "name": "ELEMENT",
+                  "datatype": "category"
+                },
+                {
+                  "header": "DATA_VALUE",
+                  "name": "DATA VALUE",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "header": "M_FLAG",
+                  "name": "M FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "header": "Q_FLAG",
+                  "name": "Q FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "header": "S_FLAG",
+                  "name": "S FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "header": "OBS_TIME",
+                  "name": "OBS TIME",
+                  "datatype": "string"
+                }
+              ],
+              "markers": {}
+            },
+            "params": {
+              "format": "csv"
+            },
+            "previewUri": "s3://bbo-playground-unstructured-bucket/GHCN/2012.csv"
+          },
+          "target": {
+            "tablePrefix": "test2012",
+            "tableUuid": "tedyl2vq0sbmavvepymflv",
+            "database": "bbo-playground-structured-catalog",
+            "location": "s3://bbo-playground-structured-bucket/",
+            "table": "test2012_tedyl2vq0sbmavvepymflv",
+            "schema": {
+              "columns": [
+                {
+                  "id": "id",
+                  "header": "ID",
+                  "name": "ID",
+                  "datatype": "identifier"
+                },
+                {
+                  "id": "date",
+                  "header": "DATE",
+                  "name": "DATE",
+                  "datatype": "integer",
+                  "options": {}
+                },
+                {
+                  "id": "element",
+                  "header": "ELEMENT",
+                  "name": "ELEMENT",
+                  "datatype": "category"
+                },
+                {
+                  "id": "data_value",
+                  "header": "DATA_VALUE",
+                  "name": "DATA VALUE",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "id": "m_flag",
+                  "header": "M_FLAG",
+                  "name": "M FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "id": "q_flag",
+                  "header": "Q_FLAG",
+                  "name": "Q FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "id": "s_flag",
+                  "header": "S_FLAG",
+                  "name": "S FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "id": "obs_time",
+                  "header": "OBS_TIME",
+                  "name": "OBS TIME",
+                  "datatype": "string"
+                }
+              ],
+              "markers": {}
+            },
+            "partitioning": {
+              "method": "files"
+            },
+            "properties": {
+              "name": "test2012"
+            }
+          }
+        },
+        "reference": {
+          "database": "bbo-playground-structured-catalog",
+          "table": "test2012_tedyl2vq0sbmavvepymflv"
+        },
+        "configure": {
+          "date": {
+            "datatype": "string"
+          }
+        }
+      }
+    },
+    {
+      "id": "eoywg8Z3zTWnz4YU5SRITR",
+      "transform": "FILTER",
+      "params": {
+        "mode": "in",
+        "rows": "id like 'US%'"
+      }
+    },
+    {
+      "id": "TVOP0qHOabR1uaZD7dEt6j",
+      "transform": "FILTER",
+      "params": {
+        "mode": "in",
+        "rows": "element like 'TAVG'"
+      }
+    },
+    {
+      "id": "cV1fKdSP3UDyz1Mkb7NTw9",
+      "transform": "PICK",
+      "params": {
+        "mode": "drop",
+        "columns": [
+          "m_flag",
+          "q_flag",
+          "s_flag",
+          "obs_time"
+        ]
+      }
+    },
+    {
+      "id": "Yki23T7Rub7vT0feaCs0En",
+      "transform": "REPLACE",
+      "params": {
+        "column": {
+          "column": "date",
+          "name": "DATE",
+          "datatype": "date",
+          "move": {
+            "method": null,
+            "reference": null,
+            "position": null
+          }
+        },
+        "expression": "strptime(date, '%Y%m%d')"
+      }
+    },
+    {
+      "id": "A59c5vGHSPwelEn66RfnFT",
+      "transform": "JOIN",
+      "params": {
+        "foreign_table": {
+          "journeyName": "Stations_Counties"
+        },
+        "primary_key": "id",
+        "foreign_key": "id",
+        "columns": [
+          {
+            "foreignId": "fips",
+            "newName": "FIPS",
+            "newId": "fips"
+          }
+        ]
+      }
+    },
+    {
+      "id": "VDykEsHwyOJnPWfV1lDoIF",
+      "transform": "FILTER",
+      "params": {
+        "mode": "in",
+        "rows": "fips = 06037"
+      }
+    },
+    {
+      "id": "X9gvvMXBM9H6BbQualCt0g",
+      "transform": "FILTER",
+      "params": {
+        "mode": "in",
+        "rows": "fips NOT NULL"
+      }
+    },
+    {
+      "id": "mnuVaa6zCr9fuNJBRwO3jr",
+      "transform": "GROUPBY",
+      "params": {
+        "dimensions": [
+          "fips",
+          "date"
+        ],
+        "measures": [
+          {
+            "column": "data_value",
+            "aggregation": "mean",
+            "name": "TAVG",
+            "datatype": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "ge7AP1qqn8vESOy3Yuywog",
+      "transform": "REPLACE",
+      "params": {
+        "column": {
+          "column": "tavg",
+          "name": "TAVG",
+          "datatype": null,
+          "move": {
+            "method": null,
+            "reference": null,
+            "position": null
+          }
+        },
+        "expression": "tavg / 10"
+      }
+    },
+    {
+      "id": "qX9IjWRHAWDw3U9a0Tqd20",
+      "transform": "VIEW",
+      "views": [
+        {
+          "id": "vnIzDpTeedIZnLlZchY2BZ",
+          "name": "View1",
+          "configure": {
+            "date": {
+              "datatype": "date"
+            }
+          },
+          "visual": {
+            "visualId": "line",
+            "bindings": {
+              "horizontal": {
+                "axisId": "horizontal",
+                "columnId": "date"
+              }
+            },
+            "layers": [],
+            "hidden": false,
+            "tooltip": [],
+            "axes": {},
+            "marks": {},
+            "facet": {},
+            "segmentOrder": {},
+            "projection": {},
+            "titles": {
+              "title": "Average Temperature 2012 (°C) - Los Angeles County"
+            },
+            "view": {}
+          }
+        }
+      ]
+    }
+  ],
+  "boundaries": {
+    "server": "TVOP0qHOabR1uaZD7dEt6j"
+  }
+}
