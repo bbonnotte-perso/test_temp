@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 13,
+  "cells": {
+    "A1": {
+      "uneditable": true,
+      "format": {
+        "alignHorizontal": "stretch",
+        "alignVertical": "stretch"
+      },
+      "text": "=VISUAL(`2021/View1`)",
+      "colspan": 7,
+      "rowspan": 19,
+      "mirror": {
+        "pageType": "journey",
+        "pageId": "CED70RJPDGegUOoSCFvLgj",
+        "pageWorkfolderId": "sQIJujuMKWSH5KDQUDkWsH",
+        "options": {
+          "stepId": "yqGolZZPz588K6fxwfA5Ae",
+          "viewId": "FKYMrGmD4QiJtswmiaZfUg",
+          "visual": true
+        }
+      }
+    }
+  }
+}
