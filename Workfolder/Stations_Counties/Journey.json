@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 13,
+  "parameters": [],
+  "recipe": [
+    {
+      "id": "lOBgLryNrrQKoLkgEmTmUR",
+      "transform": "IMPORT",
+      "params": {
+        "type": "catalog",
+        "structuring": {
+          "source": {
+            "type": "objectStore",
+            "uri": "s3://bbo-playground-unstructured-bucket/GHCN/Stations_Counties.csv",
+            "schema": {
+              "columns": [
+                {
+                  "header": "OBJECTID",
+                  "name": "OBJECTID",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "header": "Join_Count",
+                  "name": "Join Count",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "header": "TARGET_FID",
+                  "name": "TARGET FID",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "header": "ID",
+                  "name": "ID",
+                  "datatype": "identifier"
+                },
+                {
+                  "header": "LAT",
+                  "name": "LAT",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "LONG",
+                  "name": "LONG",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "ELEVATION",
+                  "name": "ELEVATION",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "STATE",
+                  "name": "STATE",
+                  "datatype": "category"
+                },
+                {
+                  "header": "NAME",
+                  "name": "NAME",
+                  "datatype": "name"
+                },
+                {
+                  "header": "GSN FLAG",
+                  "name": "GSN FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "header": "HCN FLAG",
+                  "name": "HCN FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "header": "WMO ID",
+                  "name": "WMO ID",
+                  "datatype": "reference"
+                },
+                {
+                  "header": "NAME 1",
+                  "name": "NAME 1",
+                  "datatype": "string"
+                },
+                {
+                  "header": "STATE_NAME",
+                  "name": "STATE NAME",
+                  "datatype": "category"
+                },
+                {
+                  "header": "STATE_ABBR",
+                  "name": "STATE ABBR",
+                  "datatype": "category"
+                },
+                {
+                  "header": "STATE_FIPS",
+                  "name": "STATE FIPS",
+                  "datatype": "string",
+                  "options": {}
+                },
+                {
+                  "header": "COUNTY_FIPS",
+                  "name": "COUNTY FIPS",
+                  "datatype": "string",
+                  "options": {}
+                },
+                {
+                  "header": "FIPS",
+                  "name": "FIPS",
+                  "datatype": "string",
+                  "options": {}
+                },
+                {
+                  "header": "POPULATION_2020",
+                  "name": "POPULATION 2020",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "header": "POP20_SQMI",
+                  "name": "POP20 SQMI",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "SQMI",
+                  "name": "SQMI",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "x",
+                  "name": "X",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "y",
+                  "name": "Y",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                }
+              ],
+              "markers": {}
+            },
+            "params": {
+              "format": "csv"
+            },
+            "previewUri": "s3://bbo-playground-unstructured-bucket/GHCN/Stations_Counties.csv"
+          },
+          "target": {
+            "tablePrefix": "stations_counties",
+            "tableUuid": "wsrcyyrxm1qujxkxreu7nr",
+            "database": "bbo-playground-structured-catalog",
+            "location": "s3://bbo-playground-structured-bucket/",
+            "table": "stations_counties_wsrcyyrxm1qujxkxreu7nr",
+            "schema": {
+              "columns": [
+                {
+                  "id": "objectid",
+                  "header": "OBJECTID",
+                  "name": "OBJECTID",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "id": "join_count",
+                  "header": "Join_Count",
+                  "name": "Join Count",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "id": "target_fid",
+                  "header": "TARGET_FID",
+                  "name": "TARGET FID",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "id": "id",
+                  "header": "ID",
+                  "name": "ID",
+                  "datatype": "identifier"
+                },
+                {
+                  "id": "lat",
+                  "header": "LAT",
+                  "name": "LAT",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "long",
+                  "header": "LONG",
+                  "name": "LONG",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "elevation",
+                  "header": "ELEVATION",
+                  "name": "ELEVATION",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "state",
+                  "header": "STATE",
+                  "name": "STATE",
+                  "datatype": "category"
+                },
+                {
+                  "id": "name",
+                  "header": "NAME",
+                  "name": "NAME",
+                  "datatype": "name"
+                },
+                {
+                  "id": "gsn_flag",
+                  "header": "GSN FLAG",
+                  "name": "GSN FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "id": "hcn_flag",
+                  "header": "HCN FLAG",
+                  "name": "HCN FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "id": "wmo_id",
+                  "header": "WMO ID",
+                  "name": "WMO ID",
+                  "datatype": "reference"
+                },
+                {
+                  "id": "name_1",
+                  "header": "NAME 1",
+                  "name": "NAME 1",
+                  "datatype": "string"
+                },
+                {
+                  "id": "state_name",
+                  "header": "STATE_NAME",
+                  "name": "STATE NAME",
+                  "datatype": "category"
+                },
+                {
+                  "id": "state_abbr",
+                  "header": "STATE_ABBR",
+                  "name": "STATE ABBR",
+                  "datatype": "category"
+                },
+                {
+                  "id": "state_fips",
+                  "header": "STATE_FIPS",
+                  "name": "STATE FIPS",
+                  "datatype": "string",
+                  "options": {}
+                },
+                {
+                  "id": "county_fips",
+                  "header": "COUNTY_FIPS",
+                  "name": "COUNTY FIPS",
+                  "datatype": "string",
+                  "options": {}
+                },
+                {
+                  "id": "fips",
+                  "header": "FIPS",
+                  "name": "FIPS",
+                  "datatype": "string",
+                  "options": {}
+                },
+                {
+                  "id": "population_2020",
+                  "header": "POPULATION_2020",
+                  "name": "POPULATION 2020",
+                  "datatype": "integer",
+                  "options": {
+                    "displayFormat": "0,0"
+                  }
+                },
+                {
+                  "id": "pop20_sqmi",
+                  "header": "POP20_SQMI",
+                  "name": "POP20 SQMI",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "sqmi",
+                  "header": "SQMI",
+                  "name": "SQMI",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "x",
+                  "header": "x",
+                  "name": "X",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "y",
+                  "header": "y",
+                  "name": "Y",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                }
+              ],
+              "markers": {}
+            },
+            "partitioning": {
+              "method": "files"
+            },
+            "properties": {
+              "name": "Stations_Counties"
+            }
+          }
+        },
+        "reference": {
+          "database": "bbo-playground-structured-catalog",
+          "table": "stations_counties_wsrcyyrxm1qujxkxreu7nr"
+        }
+      }
+    },
+    {
+      "id": "ojTyp73HhAq4XX0cCShpWl",
+      "transform": "VIEW"
+    },
+    {
+      "id": "zKuAAGJM4yz6UqV4rIzQhm",
+      "transform": "PICK",
+      "params": {
+        "mode": "keep",
+        "columns": [
+          "id",
+          "lat",
+          "long",
+          "state",
+          "state_name",
+          "state_abbr",
+          "state_fips",
+          "county_fips",
+          "fips"
+        ]
+      }
+    }
+  ],
+  "boundaries": {
+    "server": null
+  }
+}
