@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 13,
+  "parameters": [],
+  "recipe": [
+    {
+      "id": "RzhdALJLPayqLSUtit5Gxu",
+      "transform": "IMPORT",
+      "params": {
+        "type": "catalog",
+        "structuring": {
+          "source": {
+            "type": "objectStore",
+            "uri": "s3://bbo-playground-unstructured-bucket/GHCN/Raw_Stations/Stations - Sheet1 (2).csv",
+            "schema": {
+              "columns": [
+                {
+                  "header": "ID",
+                  "name": "ID",
+                  "datatype": "identifier"
+                },
+                {
+                  "header": "LAT",
+                  "name": "LAT",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "LONG",
+                  "name": "LONG",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "ELEVATION",
+                  "name": "ELEVATION",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "header": "STATE",
+                  "name": "STATE",
+                  "datatype": "string"
+                },
+                {
+                  "header": "NAME",
+                  "name": "NAME",
+                  "datatype": "name"
+                },
+                {
+                  "header": "GSN FLAG",
+                  "name": "GSN FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "header": "HCN FLAG",
+                  "name": "HCN FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "header": "WMO ID",
+                  "name": "WMO ID",
+                  "datatype": "reference"
+                }
+              ],
+              "markers": {}
+            },
+            "params": {
+              "format": "csv"
+            },
+            "cache": {
+              "previewUri": "s3://bbo-playground-unstructured-bucket/GHCN/Raw_Stations/Stations - Sheet1 (2).csv",
+              "discoveryHash": -204582554
+            }
+          },
+          "target": {
+            "tablePrefix": "stations___sheet1__2_",
+            "tableUuid": "bfckwd80zmojaxpmwd949t",
+            "database": "bbo-playground-structured-catalog",
+            "location": "s3://bbo-playground-structured-bucket/",
+            "table": "stations___sheet1__2__bfckwd80zmojaxpmwd949t",
+            "schema": {
+              "columns": [
+                {
+                  "id": "id",
+                  "header": "ID",
+                  "name": "ID",
+                  "datatype": "identifier"
+                },
+                {
+                  "id": "lat",
+                  "header": "LAT",
+                  "name": "LAT",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "long",
+                  "header": "LONG",
+                  "name": "LONG",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "elevation",
+                  "header": "ELEVATION",
+                  "name": "ELEVATION",
+                  "datatype": "number",
+                  "options": {
+                    "displayFormat": "0,0.00"
+                  }
+                },
+                {
+                  "id": "state",
+                  "header": "STATE",
+                  "name": "STATE",
+                  "datatype": "string"
+                },
+                {
+                  "id": "name",
+                  "header": "NAME",
+                  "name": "NAME",
+                  "datatype": "name"
+                },
+                {
+                  "id": "gsn_flag",
+                  "header": "GSN FLAG",
+                  "name": "GSN FLAG",
+                  "datatype": "category"
+                },
+                {
+                  "id": "hcn_flag",
+                  "header": "HCN FLAG",
+                  "name": "HCN FLAG",
+                  "datatype": "string"
+                },
+                {
+                  "id": "wmo_id",
+                  "header": "WMO ID",
+                  "name": "WMO ID",
+                  "datatype": "reference"
+                }
+              ],
+              "markers": {}
+            },
+            "partitioning": {
+              "method": "files"
+            },
+            "properties": {
+              "name": "Stations - Sheet1 (2)"
+            }
+          }
+        },
+        "reference": {
+          "database": "bbo-playground-structured-catalog",
+          "table": "stations___sheet1__2__bfckwd80zmojaxpmwd949t"
+        }
+      }
+    }
+  ],
+  "boundaries": {
+    "server": null
+  }
+}
