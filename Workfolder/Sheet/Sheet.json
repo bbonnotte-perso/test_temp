@@ -27,9 +27,29 @@
         "alignHorizontal": "stretch",
         "alignVertical": "stretch"
       },
-      "text": "=VISUAL(`2012/View1`)",
+      "text": "=VISUAL(`All Years/View1`)",
       "colspan": 6,
       "rowspan": 10,
+      "mirror": {
+        "pageType": "journey",
+        "pageId": "UVnO4vOmluamf8BQtQoGzh",
+        "pageWorkfolderId": "sQIJujuMKWSH5KDQUDkWsH",
+        "options": {
+          "stepId": "g4LgFbODTC4UApJcoQ8V7A",
+          "viewId": "qzsyjrWbD3BtOdjUsLIk75",
+          "visual": true
+        }
+      }
+    },
+    "A21": {
+      "uneditable": true,
+      "format": {
+        "alignHorizontal": "stretch",
+        "alignVertical": "stretch"
+      },
+      "text": "=VISUAL(`2012/View1`)",
+      "colspan": 6,
+      "rowspan": 8,
       "mirror": {
         "pageType": "journey",
         "pageId": "GpFpVBVEiWIhRtYfDhBVdE",

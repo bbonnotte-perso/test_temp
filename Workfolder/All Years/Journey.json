@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 13,
+  "parameters": [],
+  "recipe": [
+    {
+      "id": "GxW3F8TgeHxSfkZscAnVfN",
+      "transform": "IMPORT",
+      "params": {
+        "type": "catalog",
+        "reference": {
+          "table": "temperatures_olivier_trfiymqy9jw8ormzkbzg3g",
+          "database": "rcs_main",
+          "name": "Temperatures Olivier"
+        }
+      }
+    },
+    {
+      "id": "LEjB1bbNo3q2BNJWNq9TqY",
+      "transform": "FILTER",
+      "params": {
+        "mode": "in",
+        "rows": "id like 'US%'"
+      }
+    },
+    {
+      "id": "ANHO6y3wHJSwupmQmFtDFH",
+      "transform": "PICK",
+      "params": {
+        "mode": "keep",
+        "columns": [
+          "id",
+          "date",
+          "data_value",
+          "year"
+        ]
+      }
+    },
+    {
+      "id": "LOIONuxRx4vO5P5CzXVlgg",
+      "transform": "JOIN",
+      "params": {
+        "foreign_table": {
+          "journeyName": "Stations_Counties"
+        },
+        "primary_key": "id",
+        "foreign_key": "id",
+        "columns": [
+          {
+            "foreignId": "fips",
+            "newName": "FIPS",
+            "newId": "fips"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vKZiHngn7DnaNsgl3b1PRp",
+      "transform": "FILTER",
+      "params": {
+        "mode": "in",
+        "rows": "fips = 06037"
+      }
+    },
+    {
+      "id": "l7rI48TQ0nDIZUzsoJDnpY",
+      "transform": "FILTER",
+      "params": {
+        "mode": "in",
+        "rows": "year = 2012"
+      }
+    },
+    {
+      "id": "WJzPurQgRrDaB8pCoIQOMe",
+      "transform": "FILTER",
+      "params": {
+        "mode": "in",
+        "rows": "fips NOT NULL"
+      }
+    },
+    {
+      "id": "sDNWr2mHhdtw5F9zgch8fC",
+      "transform": "REPLACE",
+      "params": {
+        "column": {
+          "column": "data_value",
+          "name": "TAVG",
+          "datatype": null,
+          "move": {
+            "method": null,
+            "reference": null,
+            "position": null
+          }
+        },
+        "expression": "data_value/10"
+      }
+    },
+    {
+      "id": "O1UnYvzvhnEaQ3seNjjJwK",
+      "transform": "GROUPBY",
+      "params": {
+        "dimensions": [
+          "fips",
+          "date"
+        ],
+        "measures": [
+          {
+            "column": "data_value",
+            "aggregation": "mean",
+            "name": "TAVG",
+            "datatype": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "g4LgFbODTC4UApJcoQ8V7A",
+      "transform": "VIEW",
+      "views": [
+        {
+          "id": "qzsyjrWbD3BtOdjUsLIk75",
+          "name": "View1",
+          "configure": {
+            "date": {
+              "datatype": "date"
+            }
+          },
+          "visual": {
+            "visualId": "line",
+            "bindings": {
+              "horizontal": {
+                "axisId": "horizontal",
+                "columnId": "date"
+              }
+            },
+            "layers": [],
+            "hidden": false,
+            "tooltip": [],
+            "axes": {},
+            "marks": {},
+            "facet": {},
+            "segmentOrder": {},
+            "projection": {},
+            "titles": {},
+            "view": {}
+          }
+        }
+      ]
+    }
+  ],
+  "boundaries": {
+    "server": null
+  }
+}
