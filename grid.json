@@ -1,0 +1,160 @@
+[
+//Parent
+{
+"id": 1,
+"name": "Connectors"
+},
+//First Row
+{
+"id": 11,
+"name": "TT",
+"parent": 1,
+"size": 9
+},
+{
+"id": 21,
+"name": "ST",
+"parent": 1,
+"size": 1
+},
+{
+"id": 31,
+"name": "MT",
+"parent": 1,
+"size": 0
+},
+{
+"id": 41,
+"name": "LT",
+"parent": 1,
+"size": 0
+},
+{
+"id": 51,
+"name": "HT",
+"parent": 1,
+"size": 0
+},
+// Second Row
+{
+"id": 12,
+"name": "TS",
+"parent": 1,
+"size": 10
+},
+{
+"id": 22,
+"name": "SS",
+"parent": 1,
+"size": 26
+},
+{
+"id": 32,
+"name": "MS",
+"parent": 1,
+"size": 8
+},
+{
+"id": 42,
+"name": "LS",
+"parent": 1,
+"size": 1
+},
+{
+"id": 51,
+"name": "HS",
+"parent": 1,
+"size": 0
+},
+//Third Row
+{
+"id": 13,
+"name": "TM",
+"parent": 1,
+"size": 7
+},
+{
+"id": 23,
+"name": "SM",
+"parent": 1,
+"size": 12
+},
+{
+"id": 33,
+"name": "MM",
+"parent": 1,
+"size": 20
+},
+{
+"id": 43,
+"name": "LM",
+"parent": 1,
+"size": 2
+},
+{
+"id": 53,
+"name": "HM",
+"parent": 1,
+"size": 3
+},
+//Fourth Row
+{
+"id": 14,
+"name": "TL",
+"parent": 1,
+"size": 1
+},
+{
+"id": 24,
+"name": "SL",
+"parent": 1,
+"size": 9
+},
+{
+"id": 34,
+"name": "ML",
+"parent": 1,
+"size": 20
+},
+{
+"id": 44,
+"name": "LL",
+"parent": 1,
+"size": 1
+},
+{
+"id": 54,
+"name": "HL",
+"parent": 10
+},
+//Fifth Row
+{
+"id": 15,
+"name": "TH",
+"parent": 1,
+"size": 0
+},
+{
+"id": 25,
+"name": "SH",
+"parent": 1,
+"size": 4
+},
+{
+"id": 35,
+"name": "MH",
+"parent": 1,
+"size": 5
+},
+{
+"id": 45,
+"name": "LH",
+"parent": 1,
+"size": 11
+},
+{
+"id": 55,
+"name": "HH",
+"parent": 16
+},
+]
